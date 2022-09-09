@@ -21,11 +21,11 @@ public abstract class PDFDocument {
 	public void setPDFProperties() {
 	}
 
-	public ByteArrayOutputStream getPDFDocument(Document xml, boolean bVisaoBanco) throws IOException {
+	public ByteArrayOutputStream getPDFDocument(Document xml, int paginasPorPDF, boolean bVisaoBanco) throws IOException {
 		return null;
 	}
 	
-	public ByteArrayOutputStream getPDFDocument(String texto, int totalDocLinhas, boolean bVisaoBanco) throws IOException {
+	public ByteArrayOutputStream getPDFDocument(String texto, int paginasPorPDF, boolean bVisaoBanco) throws IOException {
 		return null;
 	}
 

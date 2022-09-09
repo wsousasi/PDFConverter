@@ -1,11 +1,4 @@
 package br.com.ght;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.util.Scanner;
-
-
-import br.com.ght.OutputHandler;
 
 public class Main {
 

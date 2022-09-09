@@ -76,7 +76,7 @@ public class PDFGenerator {
 	}
 
 	//Exportar a partir de XML
-	public static byte[] buildPDFExtratoC(Document xml, String gaveta, boolean bVisaoBanco) throws IOException {
+	public static byte[] buildPDFExtratoC(Document xml, String gaveta, int paginasPorPDF, boolean bVisaoBanco) throws IOException {
 		PDFDocument pdfDoc = null;
 		if (gaveta.equalsIgnoreCase("ExtratoCCCiti")) {
 			pdfDoc = new PDFDocumentCiti();
@@ -85,7 +85,7 @@ public class PDFGenerator {
 			pdfDoc = new PDFDocumentExtratoitau();
 			pdfDoc.setPDFProperties(bVisaoBanco);
 		}
-		return pdfDoc.getPDFDocument(xml, bVisaoBanco).toByteArray();
+		return pdfDoc.getPDFDocument(xml, paginasPorPDF, bVisaoBanco).toByteArray();
 	}
 	//Exportar a partir de TXT
 	public static byte[] buildPDFExtrato(String texto, String gaveta, int paginasPorPDF, boolean bVisaoBanco) throws IOException {
