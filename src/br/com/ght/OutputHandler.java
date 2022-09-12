@@ -45,11 +45,11 @@ public class OutputHandler {
 		String filePath = "";
 		
 		if(pdfSaida.length() < 1) {
-			System.err.println("Endereço do PDF(s) vazio!");
+			System.err.println("Endereço do PDF de saida vazio!");
 			return;
 		}
 		if(documentFullPath.length() < 1) {
-			System.out.println("Endereço XML vazio!");
+			System.out.println("Endereço arquivo de entrada vazio!");
 			return;
 		}
 		
@@ -59,24 +59,34 @@ public class OutputHandler {
 			filePath = filePath.substring(0, filePath.length() - 16);
 			
 			if(pdfSaida.toLowerCase().endsWith(".pdf")) {
+				filePath = filePath +"\\"+ pdfSaida.substring(0, pdfSaida.lastIndexOf("\\") + 1);
 				fileName = pdfSaida.substring(pdfSaida.lastIndexOf("\\") + 1, pdfSaida.length() - 4);
-			}else
-				fileName = documentFullPath.substring(documentFullPath.lastIndexOf("\\") + 1,documentFullPath.length() - 4);
+			}else {
+				if(pdfSaida.contains("\\") || pdfSaida.contains("/")) {					
+					filePath = filePath + pdfSaida + "\\";
+					fileName = documentFullPath.substring(documentFullPath.lastIndexOf("\\") + 1,documentFullPath.length() - 4);
+				}else {	
+				fileName = pdfSaida;
+				}
+			}			
 		}
 		else {
 			if(pdfSaida.toLowerCase().endsWith(".pdf")) {
 				filePath = pdfSaida.substring(0, pdfSaida.lastIndexOf("\\") + 1);
 				fileName = pdfSaida.substring(pdfSaida.lastIndexOf("\\") + 1, pdfSaida.length() - 4);
 			}else {
-				if(!pdfSaida.substring(pdfSaida.length() - 1).equals("\\"))
+				//if(!pdfSaida.substring(pdfSaida.length() - 1).equals("\\"))
+				if(pdfSaida.contains("\\")) {
 					filePath = pdfSaida + "\\";
-				else
-					filePath = pdfSaida;
-				fileName = documentFullPath.substring(documentFullPath.lastIndexOf("\\") + 1,documentFullPath.length() - 4);
+					fileName = documentFullPath.substring(documentFullPath.lastIndexOf("\\") + 1,documentFullPath.length() - 4);
+				}
+				else {
+					fileName = pdfSaida;
+				}
 			}
 		}
 		
-		System.out.println("Nome do arquivo: "+ fileName);
+		System.out.println("Nome do arquivo de saída: "+ fileName);
 		System.out.println("Salvar em: "+ filePath);
 		if(admin) {
 			System.out.println("Visão escolhida: administrativa");

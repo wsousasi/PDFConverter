@@ -6,7 +6,7 @@ public class Main {
 
 		if(args[0].equalsIgnoreCase("?") || args[0].equalsIgnoreCase("help")) {
 			System.out.println("Uso:");
-			System.out.println("java -cp PDFConverter.jar;forms-7.1.3.jar;io-7.1.3.jar;kernel-7.1.3.jar;layout-7.1.3.jar;slf4j-api-1.7.25.jar;slf4j-jdk14-1.7.25.jar br.com.ght.Main <arquivo_xml> <arquivo_pdf> <visao_adm> <quantidade_pags_por_pdf>, onde <visao_adm> = true|false");
+			System.out.println("java -cp PDFConverter.jar;forms-7.2.2.jar;io-7.2.2.jar;kernel-7.2.2.jar;layout-7.2.2.jar;slf4j-api-1.7.25.jar;slf4j-jdk14-1.7.25.jar;commons-7.2.2.jar br.com.ght.Main <arquivo_entrada> <arquivo_pdf> <visao_adm> <quantidade_pags_por_pdf>, onde <visao_adm> = true|false");
 			return;
 		}
 		
